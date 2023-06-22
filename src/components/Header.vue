@@ -6,7 +6,7 @@
         <div class="header__timer timer">
           <div class="timer__text">Знижки до Дня Закоханих діють ще:</div>
           <div class="timer__body">
-            <div class="timer__numbers">00:08:00:00</div>
+            <div class="timer__numbers">{{ formattedTime }}</div>
             <div class="timer__subs">
               <span>Дн.</span>
               <span>Год.</span>
@@ -75,12 +75,25 @@ export default {
     return {
       isMenuOpen: false,
       isSearchOpen: false,
+      remainingTime: 28800, // Общее количество секунд
     }
   },
+  computed: {
+    formattedTime() {
+      const days = Math.floor(this.remainingTime / 86400)
+      const hours = Math.floor((this.remainingTime % 86400) / 3600)
+      const minutes = Math.floor((this.remainingTime % 3600) / 60)
+      const seconds = this.remainingTime % 60
 
+      return `${this.formatDigits(days)}:${this.formatDigits(hours)}:${this.formatDigits(minutes)}:${this.formatDigits(
+        seconds
+      )}`
+    },
+  },
   mounted() {
     this.menuInit()
     this.addClickOutsideListener()
+    this.startTimer()
   },
   beforeUnmount() {
     this.removeClickOutsideListener()
@@ -160,6 +173,18 @@ export default {
       ) {
         this.isSearchOpen = false
       }
+    },
+
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.remainingTime--
+        if (this.remainingTime <= 0) {
+          clearInterval(this.timer)
+        }
+      }, 1000)
+    },
+    formatDigits(value) {
+      return value.toString().padStart(2, "0")
     },
   },
 }
