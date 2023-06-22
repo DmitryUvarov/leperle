@@ -61,23 +61,43 @@
   }
 
   &__body {
-    padding: rem(20) 0;
+    @include adaptiveValue("padding-top", 20, 15);
+    @include adaptiveValue("padding-bottom", 20, 15);
   }
 
   &__container-body {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     column-gap: rem(15);
+
+    @media (min-width: $mobile) {
+      justify-content: space-between;
+    }
   }
 
   &__logo {
+    @media (max-width: $mobile) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 86px;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 
   &__search {
   }
 
   &__actions {
+    @media (max-width: $mobile) {
+      flex: 1 1 auto;
+      justify-content: flex-end;
+    }
   }
 
   &__bottom {
@@ -87,6 +107,25 @@
   }
 
   &__menu {
+  }
+
+  &__search-btn {
+    position: relative;
+    @media (min-width: $mobile) {
+      display: none;
+    }
+    &::before {
+      font-size: rem(14);
+      color: #161616;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: rem(-5);
+      left: rem(-5);
+      bottom: rem(-5);
+      right: rem(-5);
+    }
   }
 }
 
@@ -101,7 +140,7 @@
       overflow: auto;
       background-color: #fff;
       transition: left 0.3s ease 0s;
-      padding: rem(100) rem(20) rem(40);
+      padding: rem(30) rem(20) rem(40);
 
       .menu-open & {
         left: 0;
@@ -125,6 +164,11 @@
   }
 
   &__item {
+    &_hide {
+      @media (min-width: $mobile) {
+        // display: none;
+      }
+    }
   }
 
   &__link {
@@ -134,9 +178,13 @@
     text-transform: capitalize;
     padding: rem(6) rem(10);
 
+    display: flex;
+    align-items: center;
+    column-gap: rem(7);
+
     @media (any-hover: hover) {
       &:hover {
-        &::before {
+        &::after {
           display: block;
         }
       }
@@ -146,7 +194,7 @@
       font-size: rem(22);
     }
 
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       width: calc(100% - 20px);
@@ -156,6 +204,9 @@
       left: rem(10);
       display: none;
     }
+  }
+  &__icon {
+    margin-left: auto;
   }
 }
 
@@ -199,7 +250,22 @@
   flex: 0 1 rem(311);
   padding: 0 0;
   display: flex;
-  column-gap: rem(10);
+
+  @media (max-width: $mobile) {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: none;
+    padding: 0 rem(20);
+
+    &.search-open {
+      display: flex;
+    }
+  }
+
   &__button {
     padding: rem(10);
     transition: all 0.3s ease 0s;
@@ -213,6 +279,12 @@
     &::before {
       font-size: rem(13);
     }
+
+    &_close {
+      @media (min-width: $mobile) {
+        display: none;
+      }
+    }
   }
 
   &__input {
@@ -220,6 +292,7 @@
     background-color: transparent;
     color: #000;
     font-size: 12px;
+    margin-left: rem(10);
 
     &::placeholder {
       color: rgba(0, 0, 0, 0.6);
@@ -229,9 +302,16 @@
 .actions-header {
   display: flex;
   column-gap: rem(6);
+  @media (max-width: $mobile) {
+    column-gap: rem(4);
+  }
   &__link {
     position: relative;
     padding: rem(8);
+
+    @media (max-width: $mobile) {
+      padding: rem(6);
+    }
 
     @media (any-hover: hover) {
       &:hover {
@@ -242,7 +322,7 @@
     span {
       font-family: Raleway;
       color: #000;
-      font-size: rem(10);
+      @include adaptiveValue("font-size", 10, 8);
       border-radius: 50%;
       width: rem(16);
       height: rem(16);
@@ -252,13 +332,22 @@
       background: rgba(237, 28, 36, 0.5);
 
       position: absolute;
-      top: rem(-7);
-      right: rem(-8);
+      top: rem(1);
+      right: rem(0);
+
+      @media (max-width: $mobile) {
+        width: rem(14);
+        height: rem(14);
+      }
     }
 
     &::before {
       font-size: rem(18);
       color: #000000;
+
+      @media (max-width: $mobile) {
+        font-size: rem(14);
+      }
     }
   }
 }
@@ -272,9 +361,9 @@
   @media (max-width: $mobile) {
     display: block;
     position: relative;
-    width: rem(30);
-    height: rem(18);
-    z-index: 5;
+    width: rem(20);
+    height: rem(14);
+    // z-index: 5;
     @media (any-hover: none) {
       cursor: default;
     }
@@ -286,7 +375,7 @@
       right: 0;
       position: absolute;
       width: 100%;
-      height: rem(2);
+      height: rem(1);
       background-color: #000;
     }
     &::before {
@@ -296,7 +385,7 @@
       bottom: 0;
     }
     span {
-      top: calc(50% - rem(1));
+      top: calc(50% - rem(0.5));
     }
     .menu-open & {
       span {
@@ -306,11 +395,11 @@
       &::after {
       }
       &::before {
-        top: calc(50% - rem(1));
+        top: calc(50% - rem(0.5));
         transform: rotate(-45deg);
       }
       &::after {
-        bottom: calc(50% - rem(1));
+        bottom: calc(50% - rem(0.5));
         transform: rotate(45deg);
       }
     }
