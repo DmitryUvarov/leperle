@@ -21,6 +21,7 @@
   }
 
   &__text {
+    font-family: "Century Gothic";
     @include adaptiveValue("font-size", 12, 10);
     flex: 1 1 auto;
     line-height: 130%;
@@ -216,6 +217,7 @@
   column-gap: rem(32);
   font-weight: 700;
   &__text {
+    font-family: "Century Gothic";
     color: #fff;
     font-size: rem(12);
     line-height: 125%; /* 15/12 */
@@ -230,6 +232,7 @@
   }
 
   &__numbers {
+    font-family: "Century Gothic";
     @include adaptiveValue("font-size", 24, 20);
     line-height: 120.8%; /* 29/24 */
     @media (min-width: $mobile) {
@@ -238,6 +241,7 @@
   }
 
   &__subs {
+    font-family: "Century Gothic";
     line-height: 125%; /* 15/12 */
     display: flex;
     justify-content: space-between;
