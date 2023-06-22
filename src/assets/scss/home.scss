@@ -94,7 +94,8 @@
   }
 
   &__body {
-    padding: rem(50) 0;
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 50, 30);
   }
 
   &__top {
@@ -106,11 +107,16 @@
   }
 
   &__title {
+    max-width: rem(800);
     position: relative;
-    font-size: 24px;
+    @include adaptiveValue("font-size", 24, 14);
     line-height: 137.5%; /* 33/24 */
     letter-spacing: 0.96px;
     padding-left: rem(112);
+
+    @media (max-width: $mobile) {
+      padding-left: rem(85);
+    }
 
     &::before {
       content: "";
@@ -121,8 +127,11 @@
       position: absolute;
       top: 50%;
       right: calc(100% - 102px);
-      //   left: 0;
       transform: translateY(-50%);
+
+      @media (max-width: $mobile) {
+        right: calc(100% - 75px);
+      }
     }
   }
 
@@ -130,20 +139,12 @@
   }
 }
 
-.navigation {
-  &__btn {
-  }
-}
-.btn-prev {
-}
-.btn-next {
-}
-
 //========================================================================================================================================================
 
 .product-slider {
+  overflow: visible;
   .swiper-scrollbar {
-    margin-top: rem(50);
+    @include adaptiveValue("margin-top", 50, 40);
   }
 }
 
@@ -154,7 +155,7 @@
   &__images-ibg {
     position: relative;
     padding-bottom: percent(370, 280);
-    margin-bottom: rem(20);
+    @include adaptiveValue("margin-bottom", 20, 10);
     overflow: hidden;
 
     & a {
@@ -174,8 +175,8 @@
 
   &__labels {
     position: absolute;
-    top: rem(20);
-    right: rem(20);
+    @include adaptiveValue("top", 20, 10);
+    @include adaptiveValue("right", 20, 10);
     display: flex;
     flex-direction: column;
     gap: rem(10);
@@ -185,8 +186,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    @include adaptiveValue("width", 42, 25);
+    @include adaptiveValue("height", 42, 25);
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease 0s;
@@ -204,20 +205,20 @@
     }
 
     &::before {
-      font-size: rem(18);
+      @include adaptiveValue("font-size", 18, 12);
       color: #000000;
     }
   }
 
   &__info {
     flex: 1 1 auto;
-    margin-bottom: rem(16);
+    @include adaptiveValue("margin-bottom", 16, 12);
   }
 
   &__title {
-    font-size: 16px;
+    @include adaptiveValue("font-size", 16, 12);
     font-family: Century Gothic;
-    margin-bottom: rem(10);
+    @include adaptiveValue("margin-bottom", 10, 6);
 
     @media (any-hover: hover) {
       &:hover {
@@ -228,7 +229,7 @@
 
   &__materials {
     color: rgba(0, 0, 0, 0.7);
-    font-size: 16px;
+    @include adaptiveValue("font-size", 16, 10);
   }
 
   &__price {

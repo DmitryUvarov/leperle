@@ -4,9 +4,15 @@
       <div class="product-block__body">
         <div class="product-block__top">
           <h2 class="product-block__title title">New Collection</h2>
-          <div class="product-block__navigation navigation">
-            <button class="navigation__btn btn-prev" @click="prevSlide"></button>
-            <button class="navigation__btn btn-next" @click="nextSlide"></button>
+          <div class="product-block__navigation navigation navigation_slider">
+            <button
+              :class="{ navigation__btn: true, 'btn-prev': true, [`prev-${id}`]: true }"
+              @click="prevSlide"
+            ></button>
+            <button
+              :class="{ navigation__btn: true, 'btn-next': true, [`next-${id}`]: true }"
+              @click="nextSlide"
+            ></button>
           </div>
         </div>
         <swiper
@@ -14,12 +20,15 @@
           :modules="modules"
           :observer="true"
           :observeParents="true"
-          :slides-per-view="4"
-          :space-between="50"
+          :speed="300"
           :scrollbar="{
             draggable: true,
           }"
-          :navigation="false"
+          :navigation="{
+            prevEl: `.product-block__navigation .prev-${id}`,
+            nextEl: `.product-block__navigation .next-${id}`,
+          }"
+          :breakpoints="swiperOptions.breakpoints"
           ref="swiper"
         >
           <swiper-slide><ProductCart /></swiper-slide>
@@ -45,21 +54,41 @@ export default {
     SwiperSlide,
     ProductCart,
   },
+  props: {
+    id: {
+      type: Number,
+    },
+  },
+  data() {
+    return {
+      swiperOptions: {
+        breakpoints: {
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          767: {
+            slidesPerView: 2.5,
+            spaceBetween: 25,
+          },
+          991: {
+            slidesPerView: 3,
+            spaceBetween: 35,
+          },
+          1270: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        },
+      },
+    }
+  },
   setup() {
     return {
       modules: [Scrollbar, Navigation],
     }
   },
-  methods: {
-    prevSlide() {
-      //   this.$refs.swiper.swiper.slidePrev()
-    },
-    nextSlide() {
-      //   this.$refs.swiper.swiper.slideNext()
-      console.log(this.$refs.swiper)
-      console.log(this.$refs.swiper.swiper)
-    },
-  },
+  methods: {},
 }
 </script>
 

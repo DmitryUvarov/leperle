@@ -67,8 +67,8 @@
       </div>
     </section>
 
-    <!-- <ProductSlider /> -->
-    <ProductSlider />
+    <ProductSlider id="1" />
+    <ProductSlider id="2" />
 
     <!-- <section class="page">
     <div class="page__container">

@@ -37,13 +37,35 @@
   &_small {
     font-size: rem(12);
   }
+  &_slider {
+    @include adaptiveValue("font-size", 20, 12);
+    @include adaptiveValue("column-gap", 20, 10);
+  }
   &__btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #000000;
     &::before {
       @extend %ic;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: rem(-6);
+      left: rem(-6);
+      bottom: rem(-6);
+      right: rem(-6);
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
     }
 
     &.swiper-button-disabled {
@@ -95,7 +117,7 @@
   column-gap: rem(10);
   &__current {
     color: #000;
-    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 14);
     font-weight: 700;
     &.sale {
       color: #ed1c24;
@@ -104,7 +126,7 @@
 
   &__old {
     color: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
+    @include adaptiveValue("font-size", 14, 10);
     text-decoration-line: line-through;
   }
 }
