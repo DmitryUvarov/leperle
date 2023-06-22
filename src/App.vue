@@ -4,21 +4,19 @@
 </template>
 
 <script>
-
-import HomePage from './components/HomePage.vue'
-import Header  from './components/Header.vue'
+import HomePage from "./components/HomePage.vue"
+import Header from "./components/Header.vue"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HomePage,
-    Header
-  }
+    Header,
+  },
 }
 </script>
 
 <style lang="scss">
-  #app {
-
-  }
+#app {
+}
 </style>

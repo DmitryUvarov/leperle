@@ -102,6 +102,9 @@
   }
 
   &__bottom {
+    @media (min-width: $mobile) {
+      padding: rem(10) 0 rem(20);
+    }
   }
 
   &__container-bottom {
@@ -142,6 +145,7 @@
       background-color: #fff;
       transition: left 0.3s ease 0s;
       padding: rem(30) rem(20) rem(40);
+      z-index: 5;
 
       .menu-open & {
         left: 0;
@@ -167,7 +171,7 @@
   &__item {
     &_hide {
       @media (min-width: $mobile) {
-        // display: none;
+        display: none;
       }
     }
   }

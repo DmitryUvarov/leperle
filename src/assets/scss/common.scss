@@ -1,1 +1,55 @@
 // Заголовки, загальні БЕМ блоки та інше...
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  column-gap: rem(8);
+}
+.swiper-pagination-bullet {
+  cursor: pointer;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease 0s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+//========================================================================================================================================================
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: rem(20);
+  font-size: rem(20);
+
+  &_small {
+    font-size: rem(12);
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before {
+      @extend %ic;
+
+      color: #000000;
+    }
+  }
+}
+.btn-prev {
+  transform: rotate(-180deg);
+  &::before {
+    content: "\e90b";
+  }
+}
+.btn-next {
+  &::before {
+    content: "\e90b";
+  }
+}
