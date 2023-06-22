@@ -14,6 +14,15 @@ module.exports = {
   }
 }
 module.exports = {
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@js': path.resolve(__dirname, 'src/assets/js')
+      }
+    }
+  }
+};
+module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
