@@ -237,3 +237,57 @@
 }
 
 //========================================================================================================================================================
+
+.types {
+  @include adaptiveValue("padding-top", 50, 30);
+  @include adaptiveValue("padding-bottom", 50, 30);
+  &__container {
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
+    @media (max-width: $mobile) {
+      margin: 0 rem(-20);
+    }
+  }
+
+  &__item-ibg {
+    position: relative;
+    display: block;
+    &_big {
+      grid-column: span 1;
+      grid-row: span 2;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    @include adaptiveValue("right", 40, 10);
+    @include adaptiveValue("bottom", 10, 0);
+    color: #fff;
+    @include adaptiveValue("font-size", 40, 14);
+    line-height: 122.5%; /* 49/40 */
+    letter-spacing: 1.6px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    &::before {
+      @include adaptiveValue("font-size", 42, 12);
+    }
+
+    &_left {
+      @include adaptiveValue("left", 40, 10);
+      right: auto;
+    }
+  }
+}
+
+.left {
+}
+
+//========================================================================================================================================================

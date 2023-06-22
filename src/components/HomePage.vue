@@ -70,11 +70,26 @@
     <ProductSlider id="1" />
     <ProductSlider id="2" />
 
-    <!-- <section class="page">
-    <div class="page__container">
-      <div class="page__body"></div>
-    </div>
-  </section>
+    <section class="types">
+      <div class="types__container">
+        <div class="types__items">
+          <a href="#" class="types__item-ibg types__item-ibg_big">
+            <img src="../assets/img/types/01.jpg" alt="" />
+            <div class="types__text _icon-arrow-right">Каблучки</div>
+          </a>
+          <a href="#" class="types__item-ibg">
+            <img src="../assets/img/types/02.jpg" alt="" />
+            <div class="types__text types__text_left _icon-arrow-right">Сережки</div>
+          </a>
+          <a href="#" class="types__item-ibg">
+            <img src="../assets/img/types/03.jpg" alt="" />
+            <div class="types__text _icon-arrow-right">Кольє</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--
   <section class="page">
     <div class="page__container">
       <div class="page__body"></div>
