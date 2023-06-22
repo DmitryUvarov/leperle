@@ -63,6 +63,7 @@
 
     @media (max-width: $mobile) {
       padding: rem(10) rem(23);
+      min-height: rem(64);
     }
 
     &::before {
