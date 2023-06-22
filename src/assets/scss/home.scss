@@ -88,3 +88,151 @@
 }
 
 //====================================================================================================
+
+.product-block {
+  &__container {
+  }
+
+  &__body {
+    padding: rem(50) 0;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(15);
+    margin-bottom: rem(40);
+  }
+
+  &__title {
+    position: relative;
+    font-size: 24px;
+    line-height: 137.5%; /* 33/24 */
+    letter-spacing: 0.96px;
+    padding-left: rem(112);
+
+    &::before {
+      content: "";
+      width: 100vw;
+      height: 1px;
+      background: #ff9fde;
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: calc(100% - 102px);
+      //   left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__navigation {
+  }
+}
+
+.navigation {
+  &__btn {
+  }
+}
+.btn-prev {
+}
+.btn-next {
+}
+
+//========================================================================================================================================================
+
+.product-slider {
+  .swiper-scrollbar {
+    margin-top: rem(50);
+  }
+}
+
+.product-cart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__images-ibg {
+    position: relative;
+    padding-bottom: percent(370, 280);
+    margin-bottom: rem(20);
+    overflow: hidden;
+
+    & a {
+      @media (any-hover: hover) {
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    img {
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  &__labels {
+    position: absolute;
+    top: rem(20);
+    right: rem(20);
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    &.active {
+      &::before {
+        content: "\e908";
+      }
+    }
+
+    &::before {
+      font-size: rem(18);
+      color: #000000;
+    }
+  }
+
+  &__info {
+    flex: 1 1 auto;
+    margin-bottom: rem(16);
+  }
+
+  &__title {
+    font-size: 16px;
+    font-family: Century Gothic;
+    margin-bottom: rem(10);
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__materials {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+  }
+
+  &__price {
+  }
+}
+
+//========================================================================================================================================================

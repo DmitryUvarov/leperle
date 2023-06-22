@@ -67,6 +67,9 @@
       </div>
     </section>
 
+    <!-- <ProductSlider /> -->
+    <ProductSlider />
+
     <!-- <section class="page">
     <div class="page__container">
       <div class="page__body"></div>
@@ -83,6 +86,7 @@
 <script>
 import { Pagination, Autoplay, Navigation } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/vue"
+import ProductSlider from "./ProductSlider.vue"
 
 import "swiper/css"
 
@@ -90,6 +94,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    ProductSlider,
   },
   data() {
     return {}
@@ -99,14 +104,7 @@ export default {
       modules: [Pagination, Autoplay, Navigation],
     }
   },
-  methods: {
-    prevSlide() {
-      this.$swiper.slidePrev() // Переключение на предыдущий слайд
-    },
-    nextSlide() {
-      this.$swiper.slideNext() // Переключение на следующий слайд
-    },
-  },
+  methods: {},
 }
 </script>
 
