@@ -530,6 +530,20 @@
   padding: 0 rem(8);
   @include adaptiveValue("height", 50, 35);
 
+  &_small {
+    @include adaptiveValue("height", 42, 35);
+    @include adaptiveValue("max-width", 89, 77);
+
+    .counter__button {
+      @include adaptiveValue("width", 19, 15);
+      @include adaptiveValue("height", 19, 15);
+      @include adaptiveValue("font-size", 14, 10);
+    }
+    .counter__input {
+      @include adaptiveValue("font-size", 14, 10);
+    }
+  }
+
   &__button {
     @include adaptiveValue("width", 22, 15);
     @include adaptiveValue("height", 22, 15);

@@ -1,5 +1,9 @@
 <template>
-  <!-- <Header /> -->
+  <Cart />
+
+  <Header />
+  <HomePage />
+  <Footer />
 
   <!-- <CatalogPage /> -->
 
@@ -7,31 +11,31 @@
 
   <!-- <FavoritePage /> -->
 
-  <ProductPage />
-
-  <!-- <Footer /> -->
+  <!-- <ProductPage /> -->
 </template>
 
 <script>
-// import HomePage from "./components/HomePage.vue"
+import HomePage from "./components/HomePage.vue"
+import Header from "./components/Header.vue"
+import Footer from "./components/Footer.vue"
 // import CatalogPage from "./components/CatalogPage.vue"
 // import CertificatesPage from "./components/CertificatesPage.vue"
 // import FavoritePage from "./components/FavoritePage.vue"
 // import FavoritePage from "./components/FavoritePage.vue"
-import ProductPage from "./components/ProductPage"
-// import Header from "./components/Header.vue"
-// import Footer from "./components/Footer.vue"
+// import ProductPage from "./components/ProductPage"
+import Cart from "./components/Cart"
 
 export default {
   name: "App",
   components: {
-    // HomePage,
+    HomePage,
+    Header,
+    Footer,
     // CatalogPage,
     // CertificatesPage,
     // FavoritePage,
-    ProductPage,
-    // Header,
-    // Footer,
+    // ProductPage,
+    Cart,
   },
 }
 </script>
