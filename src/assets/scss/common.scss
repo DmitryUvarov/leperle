@@ -514,10 +514,6 @@
     &.active {
       border: 1px solid #ff9fde;
       background: rgba(255, 159, 222, 0.2);
-
-      @media (max-width: $mobile) {
-        font-weight: 700;
-      }
     }
   }
 }
