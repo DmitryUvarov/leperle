@@ -1,13 +1,13 @@
 <template>
-  <div class="sizes">
-    <div class="sizes__title">{{ title }}</div>
-    <div class="sizes__items">
+  <div class="clasp">
+    <div class="clasp__title">{{ title }}</div>
+    <div class="clasp__items">
       <div
-        class="sizes__item"
-        v-for="(item, index) in sizes"
+        class="clasp__item"
+        v-for="(item, index) in clasp"
         :key="index"
         :class="{ active: activeIndex === index }"
-        @click="selectSize(index)"
+        @click="selectClap(index)"
       >
         {{ item }}
       </div>
@@ -17,10 +17,10 @@
 
 <script>
 export default {
-  name: "SizesProduct",
+  name: "claspProduct",
   props: {
     title: String,
-    sizes: Array,
+    clasp: Array,
   },
   data() {
     return {
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    selectSize(index) {
+    selectClap(index) {
       this.activeIndex = index
     },
   },

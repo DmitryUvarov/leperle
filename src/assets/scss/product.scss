@@ -1,0 +1,203 @@
+.product {
+  @include adaptiveValue("padding-bottom", 50, 30);
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    column-gap: rem(50);
+    @include adaptiveValue("column-gap", 50, 30, 0, 1270, 991);
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      row-gap: rem(30);
+    }
+  }
+
+  &__images {
+    @media (min-width: $tablet) {
+      flex: 1 0 percent(610, 1270);
+      min-width: 0;
+    }
+    @media (min-width: $mobile) and (max-width: $tablet) {
+      max-width: rem(610);
+    }
+  }
+
+  &__main-slider {
+  }
+
+  &__trumb-slider {
+  }
+
+  &__content {
+  }
+}
+
+//========================================================================================================================================================
+
+.main-slider {
+  position: relative;
+
+  @media (max-width: $mobile) {
+    margin: 0 rem(-20);
+  }
+  &__slide-ibg {
+    padding-bottom: 100%;
+    margin-bottom: rem(20);
+
+    @media (max-width: $mobile) {
+      margin-bottom: rem(0);
+    }
+  }
+
+  &__pagination {
+    justify-content: center;
+    margin-top: rem(20);
+
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: 50%;
+    left: rem(10);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 20px);
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
+.trumb-slider {
+  @media (max-width: $mobile) {
+    display: none;
+  }
+  &__slide-ibg {
+    cursor: pointer;
+    padding-bottom: percent(148, 610);
+  }
+}
+
+//========================================================================================================================================================
+
+.content-product {
+  &__body {
+    @media (min-width: $mobileSmall) {
+      max-width: rem(395);
+    }
+  }
+
+  &__title {
+    color: #000;
+    @include adaptiveValue("font-size", 24, 16);
+    line-height: 120.8%; /* 29/24 */
+    text-transform: capitalize;
+    @include adaptiveValue("margin-bottom", 10, 8);
+  }
+
+  &__material {
+    color: rgba(0, 0, 0, 0.7);
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 125%; /* 20/16 */
+    @include adaptiveValue("margin-bottom", 20, 16);
+  }
+
+  &__price {
+    @include adaptiveValue("margin-bottom", 40, 16);
+
+    @media (max-width: $mobile) {
+      padding-bottom: rem(16);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__sizes {
+    @include adaptiveValue("margin-bottom", 30, 16);
+  }
+
+  &__clasp {
+    @include adaptiveValue("margin-bottom", 50, 25);
+  }
+
+  &__amount {
+    @include adaptiveValue("margin-bottom", 50, 20);
+
+    @media (max-width: $mobile) {
+      padding-bottom: rem(16);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__subtitle {
+    color: #000;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 125%; /* 20/16 */
+    @include adaptiveValue("margin-bottom", 20, 10);
+  }
+
+  &__description {
+  }
+}
+
+.amount-product {
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(20);
+    @include adaptiveValue("font-size", 14, 10);
+    line-height: 121.4%; /* 17/14 */
+
+    color: rgba(0, 0, 0, 0.5);
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__button {
+    @include adaptiveValue("height", 50, 35);
+    width: 100%;
+  }
+}
+
+.description-product {
+  max-width: rem(600);
+  &__text {
+    color: rgba(0, 0, 0, 0.7);
+    @include adaptiveValue("font-size", 14, 10);
+    line-height: 121.4%; /* 17/14 */
+    padding-left: rem(10);
+
+    p {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 20, 15);
+      }
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 20);
+    }
+  }
+
+  &__line {
+    display: flex;
+    column-gap: rem(10);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 10, 6);
+    }
+  }
+
+  &__line-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: rem(10);
+  }
+}

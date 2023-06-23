@@ -1,11 +1,18 @@
 .top-page {
   @include adaptiveValue("padding-top", 60, 30);
   @include adaptiveValue("padding-bottom", 40, 40);
+
+  &_empty {
+    @include adaptiveValue("padding-top", 60, 20);
+    @include adaptiveValue("padding-bottom", 40, 20);
+  }
   &__container {
   }
 
   &__breadcrumbs {
-    @include adaptiveValue("margin-bottom", 55, 27);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 55, 27);
+    }
   }
 
   &__filter {

@@ -27,7 +27,12 @@
               нагадуватимуть про вашу любов. Наші сертифікати доступні на будь-яку суму.
             </p>
           </div>
-          <Sizes class="certificates__sizes-block" />
+          <Sizes
+            title="Обери суму:"
+            :sizes="['500 грн', '1000 грн', '1500 грн', '2000 грн', '3000 грн']"
+            class="certificates__sizes-block"
+          />
+
           <button class="certificates__button button">Замовити сертифікат</button>
         </div>
 
