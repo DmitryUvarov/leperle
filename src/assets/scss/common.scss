@@ -115,8 +115,8 @@
     content: "";
     position: absolute;
     width: 100%;
-    bottom: rem(-2);
-    top: rem(-2);
+    bottom: rem(-4);
+    top: rem(-4);
   }
 }
 
@@ -170,9 +170,8 @@
       background: #ff9fde;
       display: block;
       position: absolute;
-      top: 50%;
+      @include adaptiveValue("top", 16, 7);
       right: calc(100% - 102px);
-      transform: translateY(-50%);
 
       @media (max-width: $mobile) {
         right: calc(100% - 55px);

@@ -163,7 +163,24 @@
     </section>
 
     <ProductItems />
-    <!---->
+
+    <section class="links">
+      <div class="links__container">
+        <div class="links__top top-block">
+          <h2 class="top-block__title links__title">Переходь до нас в інстаграм, щоб першою дізнаватись про новинки</h2>
+        </div>
+      </div>
+      <div class="links__body">
+        <div class="links__item-ibg"><img src="../assets/img/links/01.jpg" alt="" /></div>
+        <div class="links__item-ibg"><img src="../assets/img/links/02.jpg" alt="" /></div>
+        <div class="links__item-ibg"><img src="../assets/img/links/03.jpg" alt="" /></div>
+        <div class="links__item-ibg"><img src="../assets/img/links/04.jpg" alt="" /></div>
+        <div class="links__item-ibg links__item-ibg_hide"><img src="../assets/img/links/05.jpg" alt="" /></div>
+      </div>
+      <div class="links__container">
+        <a href="#" class="links__link">@le.perle.ua</a>
+      </div>
+    </section>
 
     <ProductItems />
 

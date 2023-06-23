@@ -121,22 +121,22 @@
 
 .product-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(280), 1fr));
   column-gap: rem(15);
   row-gap: rem(40);
 
   @media (max-width: $mobile) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (min-width: $tablet) {
+  @media (min-width: $mobile) {
     column-gap: rem(25);
+    grid-template-columns: repeat(3, 1fr);
   }
   @media (min-width: $tablet) {
     column-gap: rem(35);
   }
   @media (min-width: $pc) {
     column-gap: rem(50);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -313,6 +313,72 @@
   .swiper-slide {
     img {
       max-width: 100%;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.links {
+  &__container {
+    display: flex;
+  }
+
+  &__top {
+  }
+
+  &__title {
+    max-width: rem(568);
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: rem(10);
+
+    @media (max-width: $mobile) {
+      gap: rem(15);
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 rem(20);
+    }
+  }
+
+  &__item-ibg {
+    padding-bottom: 100%;
+
+    &_hide {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    justify-self: flex-end;
+    display: inline-block;
+    margin-left: auto;
+    @include adaptiveValue("margin-top", 20, 10);
+    @include adaptiveValue("font-size", 20, 12);
+    line-height: 125%; /* 25/20 */
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      display: none;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          display: block;
+        }
+      }
     }
   }
 }
