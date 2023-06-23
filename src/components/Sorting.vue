@@ -1,13 +1,9 @@
 <template>
   <div class="sorting">
-    <div class="sorting__top">
+    <div :class="{ sorting__top: true, active: isOpenSorting }" @click="togleSortingActive" ref="sortingContainer">
       <div class="sorting__title">Сортувати:</div>
-      <div
-        :class="{ sorting__current: true, active: isOpenSorting }"
-        @click="togleSortingActive"
-        ref="sortingContainer"
-      >
-        за замовчуванням
+      <div class="sorting__current">
+        <span>за замовчуванням</span>
 
         <ul class="sorting__list">
           <li class="sorting__item">від дешевших до дорогих</li>

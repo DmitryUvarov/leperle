@@ -5,26 +5,32 @@
   }
 
   &__breadcrumbs {
-    margin-bottom: rem(55);
+    @include adaptiveValue("margin-bottom", 55, 27);
   }
 
   &__body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: stretch;
+      row-gap: rem(10);
+    }
   }
 
   &__title {
     position: relative;
     color: #000;
-    font-size: 50px;
+    @include adaptiveValue("font-size", 50, 22);
     line-height: 134%; /* 67/50 */
     letter-spacing: 2px;
 
     &::before {
       content: attr(data-title);
       color: rgba(255, 159, 222, 0.2);
-      font-size: 120px;
+      @include adaptiveValue("font-size", 120, 40);
       line-height: 103.3%; /* 124/120 */
       font-family: Century Gothic;
       font-weight: 700;
@@ -33,18 +39,41 @@
       position: absolute;
       top: -50%;
       left: rem(-85);
-      //   transform: translateY(-50%);
 
       @media (max-width: em(1380)) {
         left: rem(-20);
+      }
+      @media (max-width: $mobile) {
+        top: -30%;
       }
     }
   }
 
   &__control {
+    @media (max-width: $mobile) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(15);
+    }
   }
 
   &__button {
+    border-radius: 6px;
+    border: 1px solid #ff9fde;
+    padding: rem(13) rem(30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: rem(5);
+    color: #000;
+    font-size: 12px;
+    line-height: 125%; /* 15/12 */
+    font-family: Century Gothic;
+
+    &::before {
+      font-size: rem(13);
+    }
+
     &_hide {
       @media (min-width: $mobile) {
         display: none;
@@ -56,21 +85,30 @@
 //========================================================================================================================================================
 
 .catalog {
+  @include adaptiveValue("padding-bottom", 50, 30);
   &__container {
   }
 
   &__body {
     display: flex;
-    column-gap: rem(110);
-    @include adaptiveValue("column-gap", 110, 30, 0, 1270, 991);
+    @include adaptiveValue("column-gap", 110, 30, 1, 1270, 991);
+
+    @media (min-width: $mobile) {
+      column-gap: rem(30);
+    }
   }
 
   &__filter {
-    flex: 0 0 rem(220);
+    @media (min-width: $mobile) {
+      flex: 0 0 rem(220);
+    }
+  }
+
+  &__content {
+    width: 100%;
   }
 
   &__items {
-    width: 100%;
     @media (max-width: $mobile) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -94,27 +132,22 @@
 .sorting {
   position: relative;
   &__top {
-    display: flex;
-    align-items: center;
-  }
-
-  &__title {
-    color: #000;
-    font-size: 16px;
-    line-height: 125%; /* 20/16 */
-    margin-right: rem(97);
-  }
-
-  &__current {
-    position: relative;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 16px;
-    line-height: 125%; /* 20/16 */
-    font-weight: 700;
+    position: relative;
     display: flex;
     align-items: center;
-    user-select: none;
+
+    @media (max-width: $mobile) {
+      border-radius: 6px;
+      border: 1px solid #ff9fde;
+      padding: rem(13) rem(30);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: rem(5);
+
+      width: 100%;
+    }
 
     &::after {
       content: "\e900";
@@ -124,11 +157,46 @@
       margin-left: rem(12);
       transform: translateY(2px);
       transition: all 0.3s ease 0s;
+
+      @media (max-width: $mobile) {
+        margin-left: 0;
+      }
     }
 
     &.active {
       &::after {
         transform: translateY(2px) rotate(180deg);
+      }
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-size: 16px;
+    line-height: 125%; /* 20/16 */
+    @include adaptiveValue("margin-right", 97, 30, 0, 1270, 991);
+
+    @media (max-width: $mobile) {
+      margin-right: 0;
+      color: #000;
+      font-size: 12px;
+      line-height: 125%; /* 15/12 */
+      font-weight: 400;
+    }
+  }
+
+  &__current {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+    line-height: 125%; /* 20/16 */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    span {
+      @media (max-width: $mobile) {
+        display: none;
       }
     }
   }
@@ -140,9 +208,12 @@
     display: flex;
     flex-direction: column;
     min-width: rem(265);
+
     background-color: #fff;
     box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
-    padding: rem(20) rem(5);
+    padding: 0 rem(5);
+    @include adaptiveValue("padding-top", 20, 10);
+    @include adaptiveValue("padding-bottom", 20, 10);
     transition: all 0.3s ease 0s;
     visibility: hidden;
     opacity: 0;
@@ -153,19 +224,32 @@
       right: 0;
     }
 
+    @media (max-width: $mobile) {
+      min-width: 0;
+      left: -1px;
+      right: auto;
+      width: calc(100% + 2px);
+      border-radius: 0 0 6px 6px;
+      border: 1px solid #ff9fde;
+    }
+
     .active & {
       top: rem(40);
       visibility: visible;
       opacity: 1;
+
+      @media (max-width: $mobile) {
+        top: calc(100% - 6px);
+      }
     }
   }
 
   &__item {
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 16px;
-    line-height: 125%; /* 20/16 */
     font-weight: 700;
-    padding: rem(10);
+    line-height: 125%; /* 20/16 */
+    @include adaptiveValue("font-size", 16, 12);
+    @include adaptiveValue("padding", 10, 5);
+    color: rgba(0, 0, 0, 0.8);
 
     @media (any-hover: hover) {
       &:hover {
@@ -178,22 +262,44 @@
 //========================================================================================================================================================
 
 .filter {
-  border: 1px solid rgba(0, 0, 0, 0.1);
   height: min-content;
   &__button {
   }
 
   &__body {
-  }
-
-  &__close {
     @media (min-width: $mobile) {
-      display: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: $mobile) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      overflow: auto;
+      background-color: #fff;
+      z-index: 7;
+      transition: left 0.3s ease 0s;
+
+      .open-filter & {
+        left: 0;
+      }
     }
   }
 
+  &__top {
+  }
+
+  &__close {
+  }
+
   &__line {
-    padding: rem(20);
+    &:not(.accordion-item) {
+      padding: rem(20);
+    }
+    &_active {
+      padding: rem(0) 0 rem(20);
+    }
 
     &:not(:last-child) {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -202,9 +308,84 @@
 
   &__chekbox {
   }
+
+  &__title {
+    color: #000;
+    font-size: 14px;
+    line-height: 121.4%; /* 17/14 */
+    font-family: Century Gothic;
+    margin-bottom: rem(20);
+  }
+
+  &__price-blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  &__price-block {
+    display: flex;
+    column-gap: rem(10);
+    padding: rem(9.5) rem(10);
+    color: #000;
+    font-size: 12px;
+    line-height: 125%; /* 15/12 */
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    input {
+      font-size: 14px;
+      line-height: 121.4%; /* 17/14 */
+      width: 100%;
+    }
+  }
+
+  &__price-labels {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: rem(10);
+    margin-top: rem(20);
+  }
+
+  &__price-label {
+    cursor: pointer;
+    border-radius: 4px;
+    background: rgba(255, 159, 222, 0.2);
+    padding: rem(6) rem(12);
+
+    .max {
+      background: #ff9fde;
+    }
+  }
 }
 
+.top-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(30) rem(20);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  @media (min-width: $mobile) {
+    display: none;
+  }
+  &__title {
+    font-size: rem(20);
+    font-weight: 700;
+  }
+
+  &__close {
+    font-size: rem(18);
+  }
+}
+
+//========================================================================================================================================================
+
 .chekbox {
+  cursor: pointer;
   color: #000;
   font-size: 14px;
   line-height: 121.4%; /* 17/14 */
