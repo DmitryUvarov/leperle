@@ -2,8 +2,8 @@
   <section class="product-block">
     <div class="product-block__container">
       <div class="product-block__body">
-        <div class="product-block__top">
-          <h2 class="product-block__title title">New Collection</h2>
+        <div class="product-block__top top-block">
+          <h2 class="top-block__title title">New Collection</h2>
           <div class="product-block__navigation navigation navigation_slider">
             <button
               :class="{ navigation__btn: true, 'btn-prev': true, [`prev-${id}`]: true }"
@@ -29,7 +29,6 @@
             nextEl: `.product-block__navigation .next-${id}`,
           }"
           :breakpoints="swiperOptions.breakpoints"
-          ref="swiper"
         >
           <swiper-slide><ProductCart /></swiper-slide>
           <swiper-slide><ProductCart /></swiper-slide>

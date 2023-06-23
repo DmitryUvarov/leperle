@@ -92,6 +92,7 @@
   display: block;
   width: 100%;
   height: rem(3);
+  @include adaptiveValue("margin-top", 50, 40);
 
   &::before {
     content: "";
@@ -103,10 +104,20 @@
     background: rgba(0, 0, 0, 0.2);
   }
 }
+
 .swiper-scrollbar-drag {
+  position: relative;
   cursor: grab;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: rem(-2);
+    top: rem(-2);
+  }
 }
 
 //========================================================================================================================================================
@@ -133,7 +144,61 @@
 
 //========================================================================================================================================================
 
-.title {
-}
+.top-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: rem(15);
+  margin-bottom: rem(40);
 
-//========================================================================================================================================================
+  &__title {
+    max-width: rem(800);
+    position: relative;
+    @include adaptiveValue("font-size", 24, 14);
+    line-height: 137.5%; /* 33/24 */
+    letter-spacing: 0.96px;
+    padding-left: rem(112);
+
+    @media (max-width: $mobile) {
+      padding-left: rem(65);
+    }
+
+    &::before {
+      content: "";
+      width: 100vw;
+      height: 1px;
+      background: #ff9fde;
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: calc(100% - 102px);
+      transform: translateY(-50%);
+
+      @media (max-width: $mobile) {
+        right: calc(100% - 55px);
+      }
+    }
+  }
+
+  &__link {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    line-height: 141.7%; /* 17/12 */
+    letter-spacing: 0.48px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    column-gap: rem(10);
+    transition: all 0.3s ease 0s;
+
+    &::before {
+      font-size: rem(10);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

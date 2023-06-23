@@ -112,7 +112,55 @@
 
     <ProductItems />
 
-    <!---->
+    <section class="reviews">
+      <div class="reviews__container">
+        <div class="reviews__top top-block">
+          <h2 class="top-block__title">Відгуки від наших перлинок</h2>
+          <div class="reviews__navigation navigation navigation_slider">
+            <button class="navigation__btn btn-prev"></button>
+            <button class="navigation__btn btn-next"></button>
+          </div>
+        </div>
+        <swiper
+          class="reviews-slider"
+          :modules="modules"
+          :observer="true"
+          :observeParents="true"
+          :speed="300"
+          :autoplay="{ delay: 3000 }"
+          :scrollbar="{
+            draggable: true,
+          }"
+          :navigation="{
+            prevEl: '.reviews__navigation .btn-prev',
+            nextEl: '.reviews__navigation .btn-next',
+          }"
+          :breakpoints="swiperReviews.breakpoints"
+        >
+          <swiper-slide>
+            <img src="../assets/img/reviews/01.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/02.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/03.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/04.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/02.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/03.jpg" alt="" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../assets/img/reviews/04.jpg" alt="" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
 
     <ProductItems />
     <!---->
@@ -129,7 +177,7 @@
 </template>
 
 <script>
-import { Pagination, Autoplay, Navigation } from "swiper"
+import { Pagination, Autoplay, Navigation, Scrollbar } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import ProductSlider from "./ProductSlider.vue"
 import ProductItems from "./ProductItems.vue"
@@ -144,11 +192,32 @@ export default {
     ProductItems,
   },
   data() {
-    return {}
+    return {
+      swiperReviews: {
+        breakpoints: {
+          320: {
+            slidesPerView: 2.2,
+            spaceBetween: 15,
+          },
+          767: {
+            slidesPerView: 2.5,
+            spaceBetween: 25,
+          },
+          991: {
+            slidesPerView: 3,
+            spaceBetween: 35,
+          },
+          1270: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        },
+      },
+    }
   },
   setup() {
     return {
-      modules: [Pagination, Autoplay, Navigation],
+      modules: [Pagination, Autoplay, Navigation, Scrollbar],
     }
   },
   methods: {},
