@@ -380,3 +380,43 @@
     }
   }
 }
+
+//========================================================================================================================================================
+
+.sizes {
+  &__title {
+    color: #000;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 120%;
+    margin-bottom: rem(20);
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include adaptiveValue("gap", 20, 13);
+  }
+
+  &__item {
+    cursor: pointer;
+    @include adaptiveValue("width", 96, 56);
+    @include adaptiveValue("height", 96, 56);
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    border: 1px solid #ff9fde;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include adaptiveValue("font-size", 14, 10);
+    line-height: 121.4%; /* 17/14 */
+    font-weight: 700;
+
+    &.active {
+      background: rgba(255, 159, 222, 0.2);
+    }
+  }
+}

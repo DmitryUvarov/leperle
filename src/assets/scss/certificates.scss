@@ -1,0 +1,57 @@
+.certificates {
+  @include adaptiveValue("padding-top", 20, 5);
+  @include adaptiveValue("padding-bottom", 40, 40);
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    @include adaptiveValue("gap", 50, 30, 0, 1270, 991);
+
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__content {
+  }
+
+  &__text {
+    color: rgba(0, 0, 0, 0.7);
+    @include adaptiveValue("font-size", 18, 14);
+    line-height: 120%;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    p {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 20, 15);
+      }
+    }
+  }
+
+  &__sizes-block {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 15);
+    }
+  }
+
+  &__button {
+    min-width: rem(260);
+
+    @media (max-width: $mobile) {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  &__image-ibg {
+    flex: 0 0 percent(500, 1270);
+    padding-bottom: percent(500, 1270);
+
+    @media (max-width: $mobile) {
+      padding-bottom: percent(278, 325);
+    }
+  }
+}
