@@ -89,6 +89,36 @@
       </div>
     </section>
 
+    <ProductItems />
+
+    <section class="types">
+      <div class="types__container">
+        <div class="types__items">
+          <a href="#" class="types__item-ibg types__item-ibg_big">
+            <img src="../assets/img/types/01.jpg" alt="" />
+            <div class="types__text _icon-arrow-right">Каблучки</div>
+          </a>
+          <a href="#" class="types__item-ibg">
+            <img src="../assets/img/types/02.jpg" alt="" />
+            <div class="types__text types__text_left _icon-arrow-right">Сережки</div>
+          </a>
+          <a href="#" class="types__item-ibg">
+            <img src="../assets/img/types/03.jpg" alt="" />
+            <div class="types__text _icon-arrow-right">Кольє</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ProductItems />
+
+    <!---->
+
+    <ProductItems />
+    <!---->
+
+    <ProductItems />
+
     <!--
   <section class="page">
     <div class="page__container">
@@ -102,6 +132,7 @@
 import { Pagination, Autoplay, Navigation } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import ProductSlider from "./ProductSlider.vue"
+import ProductItems from "./ProductItems.vue"
 
 import "swiper/css"
 
@@ -110,6 +141,7 @@ export default {
     Swiper,
     SwiperSlide,
     ProductSlider,
+    ProductItems,
   },
   data() {
     return {}
