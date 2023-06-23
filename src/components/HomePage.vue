@@ -8,14 +8,7 @@
             :observer="true"
             :observeParents="true"
             :speed="800"
-            :breakpoints="{
-              320: {
-                slidesPerView: 1,
-              },
-              767: {
-                slidesPerView: 2,
-              },
-            }"
+            :slides-per-view="1"
             :pagination="{ clickable: true }"
             :autoplay="{ delay: 3000 }"
             class="hero__slider"
