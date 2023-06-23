@@ -18,8 +18,8 @@
         <div class="product__images">
           <swiper
             :slides-per-view="1"
-            :space-between="50"
             :modules="modules"
+            :speed="800"
             :thumbs="{ swiper: thumbsSwiper }"
             :pagination="{ el: '.main-slider__pagination', clickable: true }"
             :navigation="{
