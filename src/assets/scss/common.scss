@@ -414,6 +414,7 @@
     @include adaptiveValue("font-size", 14, 10);
     line-height: 121.4%; /* 17/14 */
     font-weight: 700;
+    transition: all 0.3s ease 0s;
 
     &.active {
       background: rgba(255, 159, 222, 0.2);

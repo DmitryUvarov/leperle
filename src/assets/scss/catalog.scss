@@ -8,6 +8,12 @@
     @include adaptiveValue("margin-bottom", 55, 27);
   }
 
+  &__filter {
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+
   &__body {
     display: flex;
     justify-content: space-between;
@@ -35,6 +41,8 @@
       font-family: Century Gothic;
       font-weight: 700;
       letter-spacing: 4.8px;
+      white-space: nowrap;
+      text-transform: uppercase;
 
       position: absolute;
       top: -50%;

@@ -1,0 +1,8 @@
+.favorite-page {
+  @include adaptiveValue("padding-bottom", 50, 30);
+  &__container {
+  }
+
+  &__items {
+  }
+}
