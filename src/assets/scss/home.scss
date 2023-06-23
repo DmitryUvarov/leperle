@@ -382,3 +382,55 @@
     }
   }
 }
+
+//========================================================================================================================================================
+
+.about {
+  @include adaptiveValue("padding-top", 50, 30);
+  @include adaptiveValue("padding-bottom", 70, 40);
+
+  &__container {
+  }
+
+  &__top {
+  }
+
+  &__body {
+    display: flex;
+    column-gap: rem(60);
+    @include adaptiveValue("column-gap", 60, 30, 1, 1270, 767);
+
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      row-gap: rem(50);
+    }
+  }
+
+  &__text {
+    color: rgba(0, 0, 0, 0.7);
+    @include adaptiveValue("font-size", 18, 14);
+    line-height: 122.2%; /* 22/18 */
+
+    p {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 20, 15);
+      }
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(472, 1270);
+
+    @media (min-width: $mobile) {
+      flex: 1 0 percent(550, 1270);
+    }
+    @media (max-width: $mobile) {
+      padding-bottom: 96.4%;
+      margin: 0 rem(-20);
+    }
+  }
+}
+.top-block {
+  &__title {
+  }
+}
