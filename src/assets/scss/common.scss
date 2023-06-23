@@ -523,7 +523,8 @@
 .counter {
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  max-width: rem(105);
+  @include adaptiveValue("max-width", 105, 77);
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 0 rem(8);
