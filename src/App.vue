@@ -1,20 +1,24 @@
 <template>
-  <Header />
-  <HomePage />
-  <Footer />
+  <!-- <Header /> -->
+
+  <CatalogPage />
+
+  <!-- <Footer /> -->
 </template>
 
 <script>
-import HomePage from "./components/HomePage.vue"
-import Header from "./components/Header.vue"
-import Footer from "./components/Footer.vue"
+// import HomePage from "./components/HomePage.vue"
+import CatalogPage from "./components/CatalogPage.vue"
+// import Header from "./components/Header.vue"
+// import Footer from "./components/Footer.vue"
 
 export default {
   name: "App",
   components: {
-    HomePage,
-    Header,
-    Footer,
+    // HomePage,
+    CatalogPage,
+    // Header,
+    // Footer,
   },
 }
 </script>
