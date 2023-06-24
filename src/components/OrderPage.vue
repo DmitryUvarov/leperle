@@ -1,6 +1,10 @@
 <template>
   <section class="order">
     <div class="order__container">
+      <div class="order__mobile">
+        <a href="#" class="order__back _icon-prev"></a>
+        <a href="#" class="order__logo"><img src="../assets/img/logo.svg" alt="" /></a>
+      </div>
       <div class="order__body">
         <div class="order__content">
           <div class="order__top top-block">
