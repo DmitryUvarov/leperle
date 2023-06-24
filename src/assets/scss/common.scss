@@ -566,3 +566,53 @@
     @include adaptiveValue("font-size", 16, 10);
   }
 }
+
+.tabs {
+  &__navigation {
+    @media (max-width: $mobile) {
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: rem(2);
+    }
+  }
+  &__title {
+    color: rgba(0, 0, 0, 0.4);
+    @include adaptiveValue("font-size", 20, 10);
+    line-height: 135%; /* 27/20 */
+    letter-spacing: 0.8px;
+    padding: rem(11) rem(23);
+    transition: all 0.3s ease 0s;
+
+    @media (min-width: $mobile) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &._active {
+      color: #000;
+      border-bottom: 1px solid rgba(0, 0, 0, 1);
+
+      @media (max-width: $mobile) {
+        border-radius: 6px;
+        border: 1px solid #ff9fde;
+        background: #ff9fde;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #000;
+        border-bottom: 1px solid rgba(0, 0, 0, 1);
+      }
+    }
+  }
+  &__content {
+  }
+  &__body {
+    display: none;
+    &._active {
+      display: block;
+    }
+  }
+}

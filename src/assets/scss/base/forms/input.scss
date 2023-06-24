@@ -12,8 +12,20 @@ textarea {
   border-radius: 0 !important;
   width: 100%;
   display: block;
-  padding: 0px 20px;
-  border: 1px solid #eee;
+  padding: rem(15) rem(30);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  @include adaptiveValue("height", 50, 45);
+
+  color: rgba(0, 0, 0, 0.7);
+  @include adaptiveValue("font-size", 16, 12);
+  line-height: 125%; /* 20/16 */
+  letter-spacing: 0.64px;
+  transition: all 0.3s ease 0s;
+
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+
   &._form-focus {
   }
   &._form-error {
@@ -36,5 +48,9 @@ input {
 
 textarea.input {
   resize: none;
-  padding: 0px 0px;
+  min-height: rem(115);
+  &:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
 }
